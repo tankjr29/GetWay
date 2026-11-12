@@ -109,7 +109,13 @@ La documentation interactive (Swagger UI) sera accessible à l'adresse : `http:/
 
 ### Plateforme web
 
-Le frontend Next.js se trouve dans `web/`. Pour les instructions de démarrage local et de déploiement du site Vercel avec l’API Docker séparée, consulte [DEPLOYMENT.md](DEPLOYMENT.md).
+Le frontend Next.js se trouve dans `web/`. Pour démarrer le site et l’API ensemble avec Docker Compose :
+
+```bash
+docker compose up --build
+```
+
+Ouvre `http://localhost:3000`. Consulte [DEPLOYMENT.md](DEPLOYMENT.md) pour le déploiement sur Vercel ou sur un hébergeur Docker.
 
 ---
 

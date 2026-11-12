@@ -30,24 +30,23 @@ Importe le même dépôt dans Vercel et choisis `web` comme **Root Directory**. 
 
 Ajoute aussi l’URL Vercel à `GETWAY_ALLOWED_ORIGINS` dans le service API. Si tu ajoutes un domaine personnalisé, ajoute-le également à cette liste, puis redéploie l’API.
 
-## 3. Démarrer en local
+## 3. Démarrer les deux services avec Docker
 
-Dans un terminal à la racine :
+Depuis la racine du dépôt, lance :
 
-```powershell
-python -m pip install -e ".[api]"
-uvicorn getway.api.app:app --reload
+```sh
+docker compose up --build
 ```
 
-Dans un second terminal :
+Le site est disponible sur `http://localhost:3000` et l’API sur `http://localhost:8000`. Docker Compose construit les deux images, attend que l’API soit prête, puis démarre le site. Les fichiers téléchargés sont conservés dans le volume Docker `getway_downloads`, même après l’arrêt des conteneurs.
 
-```powershell
-cd web
-npm install
-npm run dev
+Pour arrêter les services, fais `Ctrl+C`, puis :
+
+```sh
+docker compose down
 ```
 
-Le site sera disponible sur `http://localhost:3000` et l’API sur `http://localhost:8000`. CORS autorise déjà `http://localhost:3000` en local.
+Les fichiers restent dans le volume après `docker compose down`. Pour repartir avec un volume vide, supprime-le explicitement avec `docker compose down --volumes`.
 
 ## Limites de la première version
 
