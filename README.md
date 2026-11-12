@@ -1,2 +1,3 @@
 # GetWay
-Outils de téléchargement de vidéo
+
+Outil modulaire de telechargement de videos : core / cli / api.

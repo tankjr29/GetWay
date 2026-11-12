@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "getway"
+version = "0.1.0"
+description = "Outil modulaire de telechargement de videos"
+readme = "README.md"
+requires-python = "^>=3.11"
+dependencies = [
+  "yt-dlp",
+  "pydantic^>=2",
+  "pydantic-settings^>=2",
+]
+
+[project.optional-dependencies]
+cli = ["typer^>=0.12", "rich^>=13"]
+api = ["fastapi^>=0.110", "uvicorn[standard]^>=0.29", "sse-starlette"]
+dev = ["pytest", "pytest-asyncio", "httpx", "ruff", "mypy"]
+
+[project.scripts]
+getway = "getway.cli.main:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/getway"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src"]
+
+[tool.mypy]
+strict = true
+plugins = ["pydantic.mypy"]
