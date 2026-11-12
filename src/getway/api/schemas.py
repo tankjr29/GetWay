@@ -14,5 +14,6 @@ class JobResponse(BaseModel):
     job_id: str
     status: JobStatus
     message: str
+    progress: float = 0.0
     file_path: str | None = None
     error: str | None = None

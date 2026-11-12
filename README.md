@@ -107,6 +107,10 @@ uvicorn getway.api.app:app --reload --host 127.0.0.1 --port 8000
 ```
 La documentation interactive (Swagger UI) sera accessible à l'adresse : `http://127.0.0.1:8000/docs`.
 
+### Plateforme web
+
+Le frontend Next.js se trouve dans `web/`. Pour les instructions de démarrage local et de déploiement du site Vercel avec l’API Docker séparée, consulte [DEPLOYMENT.md](DEPLOYMENT.md).
+
 ---
 
 ## 🗺️ Feuille de route (Roadmap)
